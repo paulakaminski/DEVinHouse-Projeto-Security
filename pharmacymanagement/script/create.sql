@@ -39,3 +39,16 @@ id serial primary key,
 	preco_unitario numeric not null,
 	tipo varchar(30) not null
 );
+
+create table role (
+id serial primary key,
+    nome varchar(60) not null
+);
+
+create table usuario_roles (
+    id_usuario int not null,
+    id_role int not null,
+    constraint pk_usuario_role primary key (id_usuario, id_role),
+    constraint fk_usuario_role_usuario foreign key (id_usuario) references usuario (id),
+    constraint fk_usuario_role_role foreign key (id_role) references role (id)
+);

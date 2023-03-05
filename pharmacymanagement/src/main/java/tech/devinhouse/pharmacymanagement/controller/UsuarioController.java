@@ -6,11 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tech.devinhouse.pharmacymanagement.controller.dto.UsuarioRequest;
 import tech.devinhouse.pharmacymanagement.controller.dto.UsuarioResponse;
-import tech.devinhouse.pharmacymanagement.dataprovider.entity.UsuarioEntity;
 import tech.devinhouse.pharmacymanagement.padroes.DefaultResponse;
 import tech.devinhouse.pharmacymanagement.service.UsuarioService;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/usuario")

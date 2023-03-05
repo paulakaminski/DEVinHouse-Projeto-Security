@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa57cb2d-67d4-4859-b95c-1998f98455b3" name="Changes" comment="" />
+    <list default="true" id="fa57cb2d-67d4-4859-b95c-1998f98455b3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/model/UsuarioModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/script/create.sql" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/script/create.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/PharmacymanagementApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/PharmacymanagementApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/controller/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/entity/EnderecoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/model/EnderecoModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/entity/FarmaciaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/model/FarmaciaModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/entity/MedicamentoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/model/MedicamentoModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/entity/UsuarioEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/repository/EnderecoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/repository/EnderecoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/repository/FarmaciaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/repository/FarmaciaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/repository/MedicamentoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/repository/MedicamentoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/repository/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/repository/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/service/FarmaciaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/service/FarmaciaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/service/MedicamentoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/service/MedicamentoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/service/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,27 +61,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "last_opened_file_path": "C:/Users/Paula F Kaminski/Desktop/DEVinHouse/Módulo 03/Projeto 01/DEVinHouse-Projeto-Spring",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "spring.configuration.checksum": "83e12ae4bdd13c6c40931d9adb22726f"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Paula F Kaminski/Desktop/DEVinHouse/Módulo 03/Semana 03/mypets&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;83e12ae4bdd13c6c40931d9adb22726f&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
@@ -120,7 +140,10 @@
       <workItem from="1673782163657" duration="6471000" />
       <workItem from="1673813930047" duration="4225000" />
       <workItem from="1673820676107" duration="5723000" />
-      <workItem from="1677540049314" duration="946000" />
+      <workItem from="1677540049314" duration="3937000" />
+      <workItem from="1677622131307" duration="2849000" />
+      <workItem from="1677791055697" duration="28522000" />
+      <workItem from="1678013474554" duration="18300000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-package tech.devinhouse.pharmacymanagement.dataprovider.entity;
+package tech.devinhouse.pharmacymanagement.dataprovider.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EnderecoEntity {
+public class EnderecoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,7 +45,7 @@ public class EnderecoEntity {
     @NotNull
     private String longitude;
 
-    public EnderecoEntity(String cep, String logradouro, Integer numero, String bairro, String localidade, String uf, String complemento, String latitude, String longitude) {
+    public EnderecoModel(String cep, String logradouro, Integer numero, String bairro, String localidade, String uf, String complemento, String latitude, String longitude) {
         this.cep = cep;
         this.logradouro = logradouro;
         this.numero = numero;
