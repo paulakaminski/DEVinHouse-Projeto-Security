@@ -75,6 +75,13 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.hackerrank.applications</groupId>
+            <artifactId>junit-ordered-test-runner</artifactId>
+            <version>1.0.1</version>
+            <scope>test</scope>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
@@ -87,6 +94,13 @@
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
             <version>2.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20220924</version>
         </dependency>
 
     </dependencies>

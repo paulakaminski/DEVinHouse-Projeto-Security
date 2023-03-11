@@ -5,25 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa57cb2d-67d4-4859-b95c-1998f98455b3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/model/UsuarioModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pharmacymanagement/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacymanagement/script/create.sql" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/script/create.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/PharmacymanagementApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/PharmacymanagementApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/controller/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/entity/EnderecoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/model/EnderecoModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/entity/FarmaciaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/model/FarmaciaModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/entity/MedicamentoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/model/MedicamentoModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/entity/UsuarioEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/repository/EnderecoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/repository/EnderecoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/repository/FarmaciaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/repository/FarmaciaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/repository/MedicamentoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/repository/MedicamentoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/repository/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/dataprovider/repository/UsuarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/service/FarmaciaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/service/FarmaciaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/service/MedicamentoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/service/MedicamentoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/security/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/service/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/test/java/tech/devinhouse/pharmacymanagement/controller/UsuarioTeste.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/test/java/tech/devinhouse/pharmacymanagement/controller/UsuarioTeste.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +57,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Paula F Kaminski/Desktop/DEVinHouse/Módulo 03/Semana 03/mypets&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Paula F Kaminski/Desktop/DEVinHouse/Módulo 03/Teste projeto professor/modulo3-semana2&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -82,7 +68,7 @@
     &quot;spring.configuration.checksum&quot;: &quot;83e12ae4bdd13c6c40931d9adb22726f&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.FarmaciaTeste">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -114,6 +100,67 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FarmaciaTeste" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pharmacymanagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tech.devinhouse.pharmacymanagement.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tech.devinhouse.pharmacymanagement.controller" />
+      <option name="MAIN_CLASS_NAME" value="tech.devinhouse.pharmacymanagement.controller.FarmaciaTeste" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FarmaciaTeste.testeBuscarFarmaciaPorId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pharmacymanagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tech.devinhouse.pharmacymanagement.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tech.devinhouse.pharmacymanagement.controller" />
+      <option name="MAIN_CLASS_NAME" value="tech.devinhouse.pharmacymanagement.controller.FarmaciaTeste" />
+      <option name="METHOD_NAME" value="testeBuscarFarmaciaPorId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MedicamentoTeste" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pharmacymanagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tech.devinhouse.pharmacymanagement.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tech.devinhouse.pharmacymanagement.controller" />
+      <option name="MAIN_CLASS_NAME" value="tech.devinhouse.pharmacymanagement.controller.MedicamentoTeste" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsuarioTeste" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pharmacymanagement" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tech.devinhouse.pharmacymanagement.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tech.devinhouse.pharmacymanagement.controller" />
+      <option name="MAIN_CLASS_NAME" value="tech.devinhouse.pharmacymanagement.controller.UsuarioTeste" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PharmacymanagementApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="pharmacymanagement" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="tech.devinhouse.pharmacymanagement.PharmacymanagementApplication" />
@@ -121,6 +168,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.FarmaciaTeste" />
+        <item itemvalue="JUnit.FarmaciaTeste.testeBuscarFarmaciaPorId" />
+        <item itemvalue="JUnit.MedicamentoTeste" />
+        <item itemvalue="JUnit.UsuarioTeste" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -144,6 +199,13 @@
       <workItem from="1677622131307" duration="2849000" />
       <workItem from="1677791055697" duration="28522000" />
       <workItem from="1678013474554" duration="18300000" />
+      <workItem from="1678049695622" duration="365000" />
+      <workItem from="1678145991654" duration="3240000" />
+      <workItem from="1678315611168" duration="7000" />
+      <workItem from="1678361731195" duration="2157000" />
+      <workItem from="1678385328316" duration="12834000" />
+      <workItem from="1678544444928" duration="8348000" />
+      <workItem from="1678563541529" duration="298000" />
     </task>
     <servers />
   </component>

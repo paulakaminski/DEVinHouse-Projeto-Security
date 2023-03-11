@@ -15,6 +15,7 @@ import tech.devinhouse.pharmacymanagement.exception.BadRequestException;
 import tech.devinhouse.pharmacymanagement.exception.NotFoundException;
 import tech.devinhouse.pharmacymanagement.exception.ServerSideException;
 
+import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Objects;
 

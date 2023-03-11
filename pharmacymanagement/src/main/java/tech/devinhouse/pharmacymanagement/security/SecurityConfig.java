@@ -18,15 +18,12 @@ import tech.devinhouse.pharmacymanagement.service.UsuarioService;
 public class SecurityConfig {
 
     @Autowired
-    private UsuarioService usuarioService;
-
-    @Autowired
     private JwtAuthenticationEntryPoint entryPoint;
 
     @Bean
     JwtAuthenticationFilter filter() {
         return new JwtAuthenticationFilter();
-    };
+    }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -44,7 +41,7 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests((auth) -> {
                                 auth
-                                        .requestMatchers("/usuario/login").permitAll()
+                                        .requestMatchers("/usuarios/login").permitAll()
 
                                         .requestMatchers(HttpMethod.GET)
                                         .hasAnyRole("ADMIN", "GERENTE", "COLABORADOR")
@@ -69,9 +66,4 @@ public class SecurityConfig {
         return configuration.getAuthenticationManager();
     }
 
-//    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(usuarioService)
-//                .passwordEncoder(new BCryptPasswordEncoder());
-//    }
 }
