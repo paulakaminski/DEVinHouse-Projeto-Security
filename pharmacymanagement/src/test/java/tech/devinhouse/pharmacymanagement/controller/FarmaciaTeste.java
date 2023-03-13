@@ -1,5 +1,6 @@
 package tech.devinhouse.pharmacymanagement.controller;
 
+import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,14 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import tech.devinhouse.pharmacymanagement.security.JwtTokenProvider;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.net.URI;
 
@@ -22,25 +22,38 @@ import java.net.URI;
 @SpringBootTest
 @AutoConfigureMockMvc
 @AutoConfigureTestEntityManager
-//@Transactional
+@Transactional
 public class FarmaciaTeste {
 
     private URI path;
-    private MockHttpServletRequest request;
+
     private ResultMatcher expectedResult;
 
     @Autowired
     MockMvc mock;
 
-    private String jwtTokenAdmin;
-    private String jwtTokenGerente;
-    private String jwtTokenColaborador;
+    private String jwtToken;
 
     @Before
-    public void setUp() throws Exception {
-        jwtTokenAdmin = new JwtTokenProvider().generateToken("admin@usuario.com");
-        jwtTokenGerente = new JwtTokenProvider().generateToken("gerente@usuario.com");
-        jwtTokenColaborador = new JwtTokenProvider().generateToken("colaborador@usuario.com");
+    public void setUp() throws Exception{
+
+        String usuarioLogin = "{\"email\": \"admin@usuario.com\", \"senha\": \"102030\"}";
+
+        path = new URI("/usuario/login");
+
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders.post(path)
+                .content(usuarioLogin)
+                .header("Content-Type", "application/json");
+
+        expectedResult = MockMvcResultMatchers.status().isOk();
+
+        String response = mock.perform(request).andExpect(expectedResult).andReturn().getResponse()
+                .getContentAsString();
+
+        JSONObject data = new JSONObject(response);
+
+        jwtToken = data.getString("jwtToken");
+
     }
 
     @Test
@@ -49,7 +62,7 @@ public class FarmaciaTeste {
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders.get(path)
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer " + jwtTokenColaborador);
+                .header("Authorization", "Bearer " + jwtToken);
 
         expectedResult = MockMvcResultMatchers.status().isOk();
 
@@ -58,13 +71,13 @@ public class FarmaciaTeste {
     @Test
     public void testeBuscarFarmaciaPorId() throws Exception{
 
-        long idFarmacia = 9L;
+        long idFarmacia = 1L;
 
         path = new URI("/medicamentos/"+idFarmacia);
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders.get(path)
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer " + jwtTokenColaborador);
+                .header("Authorization", "Bearer " + jwtToken);
 
         expectedResult = MockMvcResultMatchers.status().isOk();
 
@@ -76,7 +89,7 @@ public class FarmaciaTeste {
 
         String farmaciaCadastro =
                 "{\"razaoSocial\": \"Clamed\", " +
-                        "\"cnpj\": \"99.999.999/9999-99\", " +
+                        "\"cnpj\": \"99.999.999/9999-96\", " +
                         "\"nomeFantasia\": \"Clamed Centro\", " +
                         "\"email\": \"clamed@teste.com.br\", " +
                         "\"telefoneCelular\": \"47 99999-9999\", " +
@@ -91,7 +104,7 @@ public class FarmaciaTeste {
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders.post(path)
                 .content(farmaciaCadastro)
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer " + jwtTokenGerente);
+                .header("Authorization", "Bearer " + jwtToken);
 
         expectedResult = MockMvcResultMatchers.status().isCreated();
 
@@ -103,7 +116,7 @@ public class FarmaciaTeste {
 
         String farmaciaAtualizar =
                 "{\"razaoSocial\": \"Clamed Att\", " +
-                        "\"cnpj\": \"99.999.999/9999-99\", " +
+                        "\"cnpj\": \"99.999.999/9999-98\", " +
                         "\"nomeFantasia\": \"Clamed Centro\", " +
                         "\"email\": \"clamed@teste.com.br\", " +
                         "\"telefoneCelular\": \"47 99999-9999\", " +
@@ -113,14 +126,14 @@ public class FarmaciaTeste {
                         "\"longitude\": \"-48.843727\"" +
                         "}";
 
-        long idFarmacia = 11L;
+        long idFarmacia = 2L;
 
         path = new URI("/farmacia/update/"+idFarmacia);
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders.put(path)
                 .content(farmaciaAtualizar)
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer " + jwtTokenGerente);
+                .header("Authorization", "Bearer " + jwtToken);
 
         expectedResult = MockMvcResultMatchers.status().isOk();
 
@@ -130,13 +143,13 @@ public class FarmaciaTeste {
     @Test
     public void testeDeletarFarmaciaPorId() throws Exception{
 
-        long idFarmacia = 13L;
+        long idFarmacia = 3L;
 
         path = new URI("/farmacia/delete/"+idFarmacia);
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders.delete(path)
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer " + jwtTokenAdmin);
+                .header("Authorization", "Bearer " + jwtToken);
 
         expectedResult = MockMvcResultMatchers.status().isAccepted();
 

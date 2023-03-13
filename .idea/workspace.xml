@@ -6,9 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="fa57cb2d-67d4-4859-b95c-1998f98455b3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pharmacymanagement/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/script/create.sql" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/script/create.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/PharmacymanagementApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/PharmacymanagementApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/controller/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/security/JwtAuthenticationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/security/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/java/tech/devinhouse/pharmacymanagement/service/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/test/java/tech/devinhouse/pharmacymanagement/controller/FarmaciaTeste.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/test/java/tech/devinhouse/pharmacymanagement/controller/FarmaciaTeste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/test/java/tech/devinhouse/pharmacymanagement/controller/MedicamentoTeste.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/test/java/tech/devinhouse/pharmacymanagement/controller/MedicamentoTeste.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pharmacymanagement/src/test/java/tech/devinhouse/pharmacymanagement/controller/UsuarioTeste.java" beforeDir="false" afterPath="$PROJECT_DIR$/pharmacymanagement/src/test/java/tech/devinhouse/pharmacymanagement/controller/UsuarioTeste.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,28 +53,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Paula F Kaminski/Desktop/DEVinHouse/Módulo 03/Teste projeto professor/modulo3-semana2&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;83e12ae4bdd13c6c40931d9adb22726f&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "last_opened_file_path": "C:/Users/Paula F Kaminski/Desktop/DEVinHouse/Módulo 03/Teste projeto professor/modulo3-semana2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "Errors",
+    "spring.configuration.checksum": "83e12ae4bdd13c6c40931d9adb22726f"
   }
-}</component>
-  <component name="RunManager" selected="JUnit.FarmaciaTeste">
+}]]></component>
+  <component name="RunManager" selected="JUnit.MedicamentoTeste">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -170,10 +177,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FarmaciaTeste" />
-        <item itemvalue="JUnit.FarmaciaTeste.testeBuscarFarmaciaPorId" />
         <item itemvalue="JUnit.MedicamentoTeste" />
+        <item itemvalue="JUnit.FarmaciaTeste" />
         <item itemvalue="JUnit.UsuarioTeste" />
+        <item itemvalue="JUnit.FarmaciaTeste.testeBuscarFarmaciaPorId" />
       </list>
     </recent_temporary>
   </component>
@@ -206,6 +213,7 @@
       <workItem from="1678385328316" duration="12834000" />
       <workItem from="1678544444928" duration="8348000" />
       <workItem from="1678563541529" duration="298000" />
+      <workItem from="1678629256288" duration="19266000" />
     </task>
     <servers />
   </component>

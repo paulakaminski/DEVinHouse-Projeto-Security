@@ -13,9 +13,6 @@ public class PharmacymanagementApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(PharmacymanagementApplication.class, args);
-        System.out.println("Colaborador: " + new JwtTokenProvider().generateToken("colaborador@usuario.com"));
-        System.out.println("Gerente: " + new JwtTokenProvider().generateToken("gerente@usuario.com"));
-        System.out.println("Admin: " + new JwtTokenProvider().generateToken("admin@usuario.com"));
     }
 
 }

@@ -1,6 +1,5 @@
 package tech.devinhouse.pharmacymanagement.service;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,7 +14,6 @@ import tech.devinhouse.pharmacymanagement.exception.BadRequestException;
 import tech.devinhouse.pharmacymanagement.exception.NotFoundException;
 import tech.devinhouse.pharmacymanagement.exception.ServerSideException;
 
-import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Objects;
 

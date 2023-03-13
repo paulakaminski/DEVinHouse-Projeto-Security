@@ -46,9 +46,9 @@ id serial primary key,
 );
 
 create table usuario_roles (
-    id_usuario int not null,
-    id_role int not null,
-    constraint pk_usuario_role primary key (id_usuario, id_role),
-    constraint fk_usuario_role_usuario foreign key (id_usuario) references usuario (id),
-    constraint fk_usuario_role_role foreign key (id_role) references role (id)
+usuario_id int not null,
+    roles_id int not null,
+    constraint pk_usuario_role primary key (usuario_id, roles_id),
+    constraint fk_usuario_role_usuario foreign key (usuario_id) references usuario (id),
+    constraint fk_usuario_role_roles foreign key (roles_id) references role (id)
 );
