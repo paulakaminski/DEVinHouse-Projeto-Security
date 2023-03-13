@@ -1,4 +1,4 @@
-package tech.devinhouse.pharmacymanagement.dataprovider.entity;
+package tech.devinhouse.pharmacymanagement.dataprovider.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class FarmaciaEntity {
+public class FarmaciaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,15 +49,15 @@ public class FarmaciaEntity {
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "endereco_id")
     @NotNull
-    private EnderecoEntity enderecoEntity;
+    private EnderecoModel enderecoModel;
 
-    public FarmaciaEntity(String razaoSocial, String cnpj, String nomeFantasia, String email, String telefoneFixo, String telefoneCelular, EnderecoEntity enderecoEntity) {
+    public FarmaciaModel(String razaoSocial, String cnpj, String nomeFantasia, String email, String telefoneFixo, String telefoneCelular, EnderecoModel enderecoModel) {
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
         this.nomeFantasia = nomeFantasia;
         this.email = email;
         this.telefoneFixo = telefoneFixo;
         this.telefoneCelular = telefoneCelular;
-        this.enderecoEntity = enderecoEntity;
+        this.enderecoModel = enderecoModel;
     }
 }

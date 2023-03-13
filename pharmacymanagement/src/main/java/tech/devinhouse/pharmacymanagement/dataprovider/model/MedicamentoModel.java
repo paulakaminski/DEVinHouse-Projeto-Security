@@ -1,8 +1,7 @@
-package tech.devinhouse.pharmacymanagement.dataprovider.entity;
+package tech.devinhouse.pharmacymanagement.dataprovider.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -15,7 +14,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MedicamentoEntity {
+public class MedicamentoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,7 +42,7 @@ public class MedicamentoEntity {
     @NotEmpty
     private String tipo;
 
-    public MedicamentoEntity(String nome
+    public MedicamentoModel(String nome
             , String laboratorio
             , String dosagem
             , String descricao

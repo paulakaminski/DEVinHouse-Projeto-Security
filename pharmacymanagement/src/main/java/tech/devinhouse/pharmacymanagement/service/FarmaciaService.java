@@ -4,8 +4,8 @@ import org.springframework.stereotype.Service;
 import tech.devinhouse.pharmacymanagement.controller.dto.EnderecoResponse;
 import tech.devinhouse.pharmacymanagement.controller.dto.FarmaciaRequest;
 import tech.devinhouse.pharmacymanagement.controller.dto.FarmaciaResponse;
-import tech.devinhouse.pharmacymanagement.dataprovider.entity.EnderecoEntity;
-import tech.devinhouse.pharmacymanagement.dataprovider.entity.FarmaciaEntity;
+import tech.devinhouse.pharmacymanagement.dataprovider.model.EnderecoModel;
+import tech.devinhouse.pharmacymanagement.dataprovider.model.FarmaciaModel;
 import tech.devinhouse.pharmacymanagement.dataprovider.repository.EnderecoRepository;
 import tech.devinhouse.pharmacymanagement.dataprovider.repository.FarmaciaRepository;
 import tech.devinhouse.pharmacymanagement.exception.BadRequestException;
@@ -31,25 +31,25 @@ public class FarmaciaService {
 
     public List<FarmaciaResponse> encontrarTodasAsFarmacias() {
         try {
-            List<FarmaciaEntity> entityList = farmaciaRepository.findAll();
+            List<FarmaciaModel> entityList = farmaciaRepository.findAll();
 
             List<FarmaciaResponse> responseList = new ArrayList<>();
 
-            for (FarmaciaEntity farmaciaEntity:entityList) {
+            for (FarmaciaModel farmaciaModel :entityList) {
                 responseList.add(
-                        new FarmaciaResponse(farmaciaEntity.getRazaoSocial()
-                                , farmaciaEntity.getCnpj()
-                                , farmaciaEntity.getNomeFantasia()
-                                , farmaciaEntity.getEmail()
-                                , farmaciaEntity.getTelefoneFixo()
-                                , farmaciaEntity.getTelefoneCelular()
-                                , new EnderecoResponse(farmaciaEntity.getEnderecoEntity().getCep()
-                                , farmaciaEntity.getEnderecoEntity().getLogradouro()
-                                , farmaciaEntity.getEnderecoEntity().getNumero()
-                                , farmaciaEntity.getEnderecoEntity().getBairro()
-                                , farmaciaEntity.getEnderecoEntity().getLocalidade()
-                                , farmaciaEntity.getEnderecoEntity().getUf()
-                                , farmaciaEntity.getEnderecoEntity().getComplemento()))
+                        new FarmaciaResponse(farmaciaModel.getRazaoSocial()
+                                , farmaciaModel.getCnpj()
+                                , farmaciaModel.getNomeFantasia()
+                                , farmaciaModel.getEmail()
+                                , farmaciaModel.getTelefoneFixo()
+                                , farmaciaModel.getTelefoneCelular()
+                                , new EnderecoResponse(farmaciaModel.getEnderecoModel().getCep()
+                                , farmaciaModel.getEnderecoModel().getLogradouro()
+                                , farmaciaModel.getEnderecoModel().getNumero()
+                                , farmaciaModel.getEnderecoModel().getBairro()
+                                , farmaciaModel.getEnderecoModel().getLocalidade()
+                                , farmaciaModel.getEnderecoModel().getUf()
+                                , farmaciaModel.getEnderecoModel().getComplemento()))
                 );
 
             }
@@ -66,22 +66,22 @@ public class FarmaciaService {
 
     public FarmaciaResponse encontrarFarmaciaPorId(Long id) {
         try {
-            FarmaciaEntity farmaciaEntity = farmaciaRepository.findById(id)
+            FarmaciaModel farmaciaModel = farmaciaRepository.findById(id)
                     .orElseThrow(()->new NotFoundException("Farmácia não encontrada pelo id: " + id));
 
-            return new FarmaciaResponse(farmaciaEntity.getRazaoSocial()
-                    , farmaciaEntity.getCnpj()
-                    , farmaciaEntity.getNomeFantasia()
-                    , farmaciaEntity.getEmail()
-                    , farmaciaEntity.getTelefoneFixo()
-                    , farmaciaEntity.getTelefoneCelular()
-                    , new EnderecoResponse(farmaciaEntity.getEnderecoEntity().getCep()
-                    , farmaciaEntity.getEnderecoEntity().getLogradouro()
-                    , farmaciaEntity.getEnderecoEntity().getNumero()
-                    , farmaciaEntity.getEnderecoEntity().getBairro()
-                    , farmaciaEntity.getEnderecoEntity().getLocalidade()
-                    , farmaciaEntity.getEnderecoEntity().getUf()
-                    , farmaciaEntity.getEnderecoEntity().getComplemento())
+            return new FarmaciaResponse(farmaciaModel.getRazaoSocial()
+                    , farmaciaModel.getCnpj()
+                    , farmaciaModel.getNomeFantasia()
+                    , farmaciaModel.getEmail()
+                    , farmaciaModel.getTelefoneFixo()
+                    , farmaciaModel.getTelefoneCelular()
+                    , new EnderecoResponse(farmaciaModel.getEnderecoModel().getCep()
+                    , farmaciaModel.getEnderecoModel().getLogradouro()
+                    , farmaciaModel.getEnderecoModel().getNumero()
+                    , farmaciaModel.getEnderecoModel().getBairro()
+                    , farmaciaModel.getEnderecoModel().getLocalidade()
+                    , farmaciaModel.getEnderecoModel().getUf()
+                    , farmaciaModel.getEnderecoModel().getComplemento())
             );
         } catch (NotFoundException e) {
             throw e;
@@ -99,8 +99,8 @@ public class FarmaciaService {
             enderecoResponse.setNumero(farmaciaRequest.getNumero());
             enderecoResponse.setComplemento(farmaciaRequest.getComplemento());
 
-            EnderecoEntity enderecoEntity = enderecoRepository.save(
-                    new EnderecoEntity(enderecoResponse.getCep()
+            EnderecoModel enderecoModel = enderecoRepository.save(
+                    new EnderecoModel(enderecoResponse.getCep()
                             , enderecoResponse.getLogradouro()
                             , enderecoResponse.getNumero()
                             , enderecoResponse.getBairro()
@@ -111,22 +111,22 @@ public class FarmaciaService {
                             , farmaciaRequest.getLongitude())
             );
 
-            FarmaciaEntity farmaciaEntity = farmaciaRepository.save(
-                    new FarmaciaEntity(farmaciaRequest.getRazaoSocial()
+            FarmaciaModel farmaciaModel = farmaciaRepository.save(
+                    new FarmaciaModel(farmaciaRequest.getRazaoSocial()
                             , farmaciaRequest.getCnpj()
                             , farmaciaRequest.getNomeFantasia()
                             , farmaciaRequest.getEmail()
                             , farmaciaRequest.getTelefoneFixo()
                             , farmaciaRequest.getTelefoneCelular()
-                            , enderecoEntity)
+                            , enderecoModel)
             );
 
-            return new FarmaciaResponse(farmaciaEntity.getRazaoSocial()
-                    , farmaciaEntity.getCnpj()
-                    , farmaciaEntity.getNomeFantasia()
-                    , farmaciaEntity.getEmail()
-                    , farmaciaEntity.getTelefoneFixo()
-                    , farmaciaEntity.getTelefoneCelular()
+            return new FarmaciaResponse(farmaciaModel.getRazaoSocial()
+                    , farmaciaModel.getCnpj()
+                    , farmaciaModel.getNomeFantasia()
+                    , farmaciaModel.getEmail()
+                    , farmaciaModel.getTelefoneFixo()
+                    , farmaciaModel.getTelefoneCelular()
                     , enderecoResponse
             );
         } catch (NotFoundException e) {
@@ -139,7 +139,7 @@ public class FarmaciaService {
 
     public FarmaciaResponse atualizarFarmaciaPorId(Long id, FarmaciaRequest farmaciaRequest) {
         try {
-            FarmaciaEntity farmaciaEntity = farmaciaRepository.findById(id)
+            FarmaciaModel farmaciaModel = farmaciaRepository.findById(id)
                     .orElseThrow(()->new NotFoundException("Farmácia não encontrada pelo id: " + id));
 
             if(farmaciaRequest.getRazaoSocial().isEmpty()
@@ -153,39 +153,39 @@ public class FarmaciaService {
                 throw new BadRequestException("Os campos de preenchimento obrigatório não podem ser nulos!");
             }
 
-            EnderecoEntity enderecoEntity = enderecoRepository.findById(farmaciaEntity.getEnderecoEntity().getId()).get();
+            EnderecoModel enderecoModel = enderecoRepository.findById(farmaciaModel.getEnderecoModel().getId()).get();
 
             EnderecoResponse enderecoResponse = cepService.buscaCep(farmaciaRequest.getCep());
             enderecoResponse.setNumero(farmaciaRequest.getNumero());
             enderecoResponse.setComplemento(farmaciaRequest.getComplemento());
 
-            enderecoEntity.setCep(enderecoResponse.getCep());
-            enderecoEntity.setLogradouro(enderecoResponse.getLogradouro());
-            enderecoEntity.setNumero(enderecoResponse.getNumero());
-            enderecoEntity.setBairro(enderecoResponse.getBairro());
-            enderecoEntity.setLocalidade(enderecoResponse.getLocalidade());
-            enderecoEntity.setUf(enderecoResponse.getUf());
-            enderecoEntity.setComplemento(enderecoResponse.getComplemento());
-            enderecoEntity.setLatitude(farmaciaRequest.getLatitude());
-            enderecoEntity.setLongitude(farmaciaRequest.getLongitude());
+            enderecoModel.setCep(enderecoResponse.getCep());
+            enderecoModel.setLogradouro(enderecoResponse.getLogradouro());
+            enderecoModel.setNumero(enderecoResponse.getNumero());
+            enderecoModel.setBairro(enderecoResponse.getBairro());
+            enderecoModel.setLocalidade(enderecoResponse.getLocalidade());
+            enderecoModel.setUf(enderecoResponse.getUf());
+            enderecoModel.setComplemento(enderecoResponse.getComplemento());
+            enderecoModel.setLatitude(farmaciaRequest.getLatitude());
+            enderecoModel.setLongitude(farmaciaRequest.getLongitude());
 
-            enderecoRepository.save(enderecoEntity);
+            enderecoRepository.save(enderecoModel);
 
-            farmaciaEntity.setRazaoSocial(farmaciaRequest.getRazaoSocial());
-            farmaciaEntity.setCnpj(farmaciaRequest.getCnpj());
-            farmaciaEntity.setNomeFantasia(farmaciaRequest.getNomeFantasia());
-            farmaciaEntity.setEmail(farmaciaRequest.getEmail());
-            farmaciaEntity.setTelefoneFixo(farmaciaEntity.getTelefoneFixo());
-            farmaciaEntity.setTelefoneCelular(farmaciaRequest.getTelefoneCelular());
+            farmaciaModel.setRazaoSocial(farmaciaRequest.getRazaoSocial());
+            farmaciaModel.setCnpj(farmaciaRequest.getCnpj());
+            farmaciaModel.setNomeFantasia(farmaciaRequest.getNomeFantasia());
+            farmaciaModel.setEmail(farmaciaRequest.getEmail());
+            farmaciaModel.setTelefoneFixo(farmaciaModel.getTelefoneFixo());
+            farmaciaModel.setTelefoneCelular(farmaciaRequest.getTelefoneCelular());
 
-            farmaciaRepository.save(farmaciaEntity);
+            farmaciaRepository.save(farmaciaModel);
 
-            return new FarmaciaResponse(farmaciaEntity.getRazaoSocial()
-                    , farmaciaEntity.getCnpj()
-                    , farmaciaEntity.getNomeFantasia()
-                    , farmaciaEntity.getEmail()
-                    , farmaciaEntity.getTelefoneFixo()
-                    , farmaciaEntity.getTelefoneCelular()
+            return new FarmaciaResponse(farmaciaModel.getRazaoSocial()
+                    , farmaciaModel.getCnpj()
+                    , farmaciaModel.getNomeFantasia()
+                    , farmaciaModel.getEmail()
+                    , farmaciaModel.getTelefoneFixo()
+                    , farmaciaModel.getTelefoneCelular()
                     , enderecoResponse
             );
         } catch (NotFoundException e) {
@@ -198,14 +198,14 @@ public class FarmaciaService {
 
     public void deletarFarmaciaPorId(Long id) {
         try {
-            FarmaciaEntity farmaciaEntity = farmaciaRepository.findById(id)
+            FarmaciaModel farmaciaModel = farmaciaRepository.findById(id)
                     .orElseThrow(()->new NotFoundException("Farmácia não encontrada pelo id: " + id));
 
-            EnderecoEntity enderecoEntity = enderecoRepository.findById(farmaciaEntity.getEnderecoEntity().getId()).get();
+            EnderecoModel enderecoModel = enderecoRepository.findById(farmaciaModel.getEnderecoModel().getId()).get();
 
             farmaciaRepository.deleteById(id);
 
-            enderecoRepository.deleteById(enderecoEntity.getId());
+            enderecoRepository.deleteById(enderecoModel.getId());
         } catch (NotFoundException e) {
             throw e;
         } catch (Exception e) {
@@ -215,15 +215,15 @@ public class FarmaciaService {
     }
 
     private void validarSeJaExisteFarmaciaCadastrada(FarmaciaRequest farmaciaRequest) {
-        List<FarmaciaEntity> farmaciaEntities = farmaciaRepository.findAll();
+        List<FarmaciaModel> farmaciaEntities = farmaciaRepository.findAll();
 
-        for (FarmaciaEntity farmaciaEntity:farmaciaEntities) {
-            if (Objects.equals(farmaciaRequest.getCnpj(), farmaciaEntity.getCnpj())) {
+        for (FarmaciaModel farmaciaModel :farmaciaEntities) {
+            if (Objects.equals(farmaciaRequest.getCnpj(), farmaciaModel.getCnpj())) {
                 throw new BadRequestException("Já existe uma farmácia cadastrada com o cnpj informado!");
             }
-            if (Objects.equals(farmaciaRequest.getCep(), farmaciaEntity.getEnderecoEntity().getCep())
-                    && Objects.equals(farmaciaRequest.getNumero(), farmaciaEntity.getEnderecoEntity().getNumero())
-                    && Objects.equals(farmaciaRequest.getComplemento(), farmaciaEntity.getEnderecoEntity().getComplemento())) {
+            if (Objects.equals(farmaciaRequest.getCep(), farmaciaModel.getEnderecoModel().getCep())
+                    && Objects.equals(farmaciaRequest.getNumero(), farmaciaModel.getEnderecoModel().getNumero())
+                    && Objects.equals(farmaciaRequest.getComplemento(), farmaciaModel.getEnderecoModel().getComplemento())) {
                 throw new BadRequestException("Já existe uma farmácia cadastrada no endereço informado!");
             }
         }

@@ -1,16 +1,21 @@
 package tech.devinhouse.pharmacymanagement.controller;
 
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+import tech.devinhouse.pharmacymanagement.controller.dto.JwtResponse;
 import tech.devinhouse.pharmacymanagement.controller.dto.UsuarioRequest;
 import tech.devinhouse.pharmacymanagement.controller.dto.UsuarioResponse;
-import tech.devinhouse.pharmacymanagement.dataprovider.entity.UsuarioEntity;
 import tech.devinhouse.pharmacymanagement.padroes.DefaultResponse;
+import tech.devinhouse.pharmacymanagement.security.JwtTokenProvider;
 import tech.devinhouse.pharmacymanagement.service.UsuarioService;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/usuario")
@@ -18,22 +23,34 @@ public class UsuarioController {
 
     private final UsuarioService usuarioService;
 
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private JwtTokenProvider jwtTokenProvider;
+
     public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
 
-    @GetMapping("/login")
-    public ResponseEntity<DefaultResponse> loginUsuario (@RequestBody UsuarioRequest usuarioRequest) {
-        UsuarioResponse usuarioResponse = usuarioService.encontrarUsuario(usuarioRequest);
+    @PostMapping("/login")
+    public ResponseEntity<JwtResponse> loginUsuario (@RequestBody UsuarioRequest usuarioRequest) throws Exception {
 
-        return new ResponseEntity<>(
-                new DefaultResponse<UsuarioResponse>(
-                        HttpStatus.OK.value()
-                        , "Usuário encontrado com sucesso!"
-                        , usuarioResponse
-                ),
-                HttpStatus.OK
-        );
+        authenticate(usuarioRequest.getEmail(), usuarioRequest.getSenha());
+
+        final UserDetails userDetails = usuarioService.loadUserByUsername(usuarioRequest.getEmail());
+
+        final String token = jwtTokenProvider.generateToken(userDetails.getUsername());
+
+        return new ResponseEntity<>(new JwtResponse(token), HttpStatus.OK);
+    }
+
+    private void authenticate(String login, String senha) throws Exception {
+        try {
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(login, senha));
+        } catch (BadCredentialsException e) {
+            throw new Exception("Credenciais inválidas", e);
+        }
     }
 
     @PostMapping("/cadastro")

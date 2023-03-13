@@ -3,7 +3,7 @@ package tech.devinhouse.pharmacymanagement.service;
 import org.springframework.stereotype.Service;
 import tech.devinhouse.pharmacymanagement.controller.dto.MedicamentoRequest;
 import tech.devinhouse.pharmacymanagement.controller.dto.MedicamentoResponse;
-import tech.devinhouse.pharmacymanagement.dataprovider.entity.MedicamentoEntity;
+import tech.devinhouse.pharmacymanagement.dataprovider.model.MedicamentoModel;
 import tech.devinhouse.pharmacymanagement.dataprovider.repository.MedicamentoRepository;
 import tech.devinhouse.pharmacymanagement.exception.BadRequestException;
 import tech.devinhouse.pharmacymanagement.exception.NotFoundException;
@@ -24,19 +24,19 @@ public class MedicamentoService {
 
     public List<MedicamentoResponse> encontrarTodosOsMedicamentos() {
         try {
-            List<MedicamentoEntity> entityList = medicamentoRepository.findAll();
+            List<MedicamentoModel> entityList = medicamentoRepository.findAll();
 
             List<MedicamentoResponse> responseList = new ArrayList<>();
 
-            for (MedicamentoEntity medicamentoEntity:
+            for (MedicamentoModel medicamentoModel :
                     entityList) {
                 responseList.add(
-                        new MedicamentoResponse(medicamentoEntity.getNome()
-                                , medicamentoEntity.getLaboratorio()
-                                , medicamentoEntity.getDosagem()
-                                , medicamentoEntity.getDescricao()
-                                , medicamentoEntity.getPrecoUnitario()
-                                , medicamentoEntity.getTipo())
+                        new MedicamentoResponse(medicamentoModel.getNome()
+                                , medicamentoModel.getLaboratorio()
+                                , medicamentoModel.getDosagem()
+                                , medicamentoModel.getDescricao()
+                                , medicamentoModel.getPrecoUnitario()
+                                , medicamentoModel.getTipo())
                 );
             }
 
@@ -51,15 +51,15 @@ public class MedicamentoService {
 
     public MedicamentoResponse encontrarMedicamentoPorId(Long id) {
         try {
-            MedicamentoEntity medicamentoEntity = medicamentoRepository.findById(id)
+            MedicamentoModel medicamentoModel = medicamentoRepository.findById(id)
                     .orElseThrow(()->new NotFoundException("Medicamento não encontrado pelo id: " + id));
 
-            return new MedicamentoResponse(medicamentoEntity.getNome()
-                    , medicamentoEntity.getLaboratorio()
-                    , medicamentoEntity.getDosagem()
-                    , medicamentoEntity.getDescricao()
-                    , medicamentoEntity.getPrecoUnitario()
-                    , medicamentoEntity.getTipo()
+            return new MedicamentoResponse(medicamentoModel.getNome()
+                    , medicamentoModel.getLaboratorio()
+                    , medicamentoModel.getDosagem()
+                    , medicamentoModel.getDescricao()
+                    , medicamentoModel.getPrecoUnitario()
+                    , medicamentoModel.getTipo()
             );
         } catch (NotFoundException e) {
             throw e;
@@ -73,8 +73,8 @@ public class MedicamentoService {
         try {
             validarSeJaExisteMedicamentoCadastrado(medicamentoRequest);
 
-            MedicamentoEntity medicamentoEntity = medicamentoRepository.save(
-                    new MedicamentoEntity(medicamentoRequest.getNome()
+            MedicamentoModel medicamentoModel = medicamentoRepository.save(
+                    new MedicamentoModel(medicamentoRequest.getNome()
                             , medicamentoRequest.getLaboratorio()
                             , medicamentoRequest.getDosagem()
                             , medicamentoRequest.getDescricao()
@@ -82,12 +82,12 @@ public class MedicamentoService {
                             , medicamentoRequest.getTipo()
                     ));
 
-            return new MedicamentoResponse(medicamentoEntity.getNome()
-                    , medicamentoEntity.getLaboratorio()
-                    , medicamentoEntity.getDosagem()
-                    , medicamentoEntity.getDescricao()
-                    , medicamentoEntity.getPrecoUnitario()
-                    , medicamentoEntity.getTipo()
+            return new MedicamentoResponse(medicamentoModel.getNome()
+                    , medicamentoModel.getLaboratorio()
+                    , medicamentoModel.getDosagem()
+                    , medicamentoModel.getDescricao()
+                    , medicamentoModel.getPrecoUnitario()
+                    , medicamentoModel.getTipo()
             );
         } catch (NotFoundException e) {
             throw e;
@@ -99,7 +99,7 @@ public class MedicamentoService {
 
     public MedicamentoResponse atualizarMedicamentoPorId(Long id, MedicamentoRequest medicamentoRequest) {
         try {
-            MedicamentoEntity medicamentoEntity = medicamentoRepository.findById(id)
+            MedicamentoModel medicamentoModel = medicamentoRepository.findById(id)
                     .orElseThrow(()->new NotFoundException("Medicamento não encontrado pelo id: " + id));
 
             if(medicamentoRequest.getNome().isEmpty()
@@ -109,21 +109,21 @@ public class MedicamentoService {
                 throw new BadRequestException("Os campos de preenchimento obrigatório não podem ser nulos!");
             }
 
-            medicamentoEntity.setNome(medicamentoRequest.getNome());
-            medicamentoEntity.setLaboratorio(medicamentoRequest.getLaboratorio());
-            medicamentoEntity.setDosagem(medicamentoRequest.getDosagem());
-            medicamentoEntity.setDescricao(medicamentoRequest.getDescricao());
-            medicamentoEntity.setPrecoUnitario(medicamentoRequest.getPrecoUnitario());
-            medicamentoEntity.setTipo(medicamentoRequest.getTipo());
+            medicamentoModel.setNome(medicamentoRequest.getNome());
+            medicamentoModel.setLaboratorio(medicamentoRequest.getLaboratorio());
+            medicamentoModel.setDosagem(medicamentoRequest.getDosagem());
+            medicamentoModel.setDescricao(medicamentoRequest.getDescricao());
+            medicamentoModel.setPrecoUnitario(medicamentoRequest.getPrecoUnitario());
+            medicamentoModel.setTipo(medicamentoRequest.getTipo());
 
-            medicamentoRepository.save(medicamentoEntity);
+            medicamentoRepository.save(medicamentoModel);
 
-            return new MedicamentoResponse(medicamentoEntity.getNome()
-                    , medicamentoEntity.getLaboratorio()
-                    , medicamentoEntity.getDosagem()
-                    , medicamentoEntity.getDescricao()
-                    , medicamentoEntity.getPrecoUnitario()
-                    , medicamentoEntity.getTipo()
+            return new MedicamentoResponse(medicamentoModel.getNome()
+                    , medicamentoModel.getLaboratorio()
+                    , medicamentoModel.getDosagem()
+                    , medicamentoModel.getDescricao()
+                    , medicamentoModel.getPrecoUnitario()
+                    , medicamentoModel.getTipo()
             );
         } catch (NotFoundException e) {
             throw e;
@@ -135,7 +135,7 @@ public class MedicamentoService {
 
     public void deletarMedicamentoPorId(Long id) {
         try {
-            MedicamentoEntity medicamentoEntity = medicamentoRepository.findById(id)
+            MedicamentoModel medicamentoModel = medicamentoRepository.findById(id)
                     .orElseThrow(()->new NotFoundException("Farmácia não encontrada pelo id: " + id));
 
             medicamentoRepository.deleteById(id);
@@ -150,12 +150,12 @@ public class MedicamentoService {
     }
 
     private void validarSeJaExisteMedicamentoCadastrado(MedicamentoRequest medicamentoRequest) {
-        List<MedicamentoEntity> medicamentoEntities = medicamentoRepository.findAll();
+        List<MedicamentoModel> medicamentoEntities = medicamentoRepository.findAll();
 
-        for (MedicamentoEntity medicamentoEntity:medicamentoEntities) {
-            if (Objects.equals(medicamentoRequest.getNome().toUpperCase(), medicamentoEntity.getNome().toUpperCase())
-                    && Objects.equals(medicamentoRequest.getLaboratorio().toUpperCase(), medicamentoEntity.getLaboratorio().toUpperCase())
-                    && Objects.equals(medicamentoRequest.getDosagem().toUpperCase(), medicamentoEntity.getDosagem().toUpperCase())) {
+        for (MedicamentoModel medicamentoModel :medicamentoEntities) {
+            if (Objects.equals(medicamentoRequest.getNome().toUpperCase(), medicamentoModel.getNome().toUpperCase())
+                    && Objects.equals(medicamentoRequest.getLaboratorio().toUpperCase(), medicamentoModel.getLaboratorio().toUpperCase())
+                    && Objects.equals(medicamentoRequest.getDosagem().toUpperCase(), medicamentoModel.getDosagem().toUpperCase())) {
                 throw new BadRequestException("Já existe um medicamento cadastrado com os dados informados!");
             }
         }

@@ -1,9 +1,14 @@
 package tech.devinhouse.pharmacymanagement.service;
 
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import tech.devinhouse.pharmacymanagement.controller.dto.UsuarioRequest;
 import tech.devinhouse.pharmacymanagement.controller.dto.UsuarioResponse;
-import tech.devinhouse.pharmacymanagement.dataprovider.entity.UsuarioEntity;
+import tech.devinhouse.pharmacymanagement.dataprovider.model.UsuarioModel;
 import tech.devinhouse.pharmacymanagement.dataprovider.repository.UsuarioRepository;
 import tech.devinhouse.pharmacymanagement.exception.BadRequestException;
 import tech.devinhouse.pharmacymanagement.exception.NotFoundException;
@@ -13,7 +18,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Service
-public class UsuarioService {
+public class UsuarioService implements UserDetailsService {
 
     private final UsuarioRepository usuarioRepository;
 
@@ -22,14 +27,14 @@ public class UsuarioService {
     }
 
     public UsuarioResponse encontrarUsuario(UsuarioRequest usuarioRequest) {
-        List<UsuarioEntity> usuarioEntities = usuarioRepository.findAll();
+        List<UsuarioModel> usuarioEntities = usuarioRepository.findAll();
 
         UsuarioResponse usuarioResponse = new UsuarioResponse();
-        for (UsuarioEntity usuarioEntity : usuarioEntities) {
-            if(Objects.equals(usuarioRequest.getEmail(), usuarioEntity.getEmail())
-                    && Objects.equals(usuarioRequest.getSenha(), usuarioEntity.getSenha())
+        for (UsuarioModel usuarioModel : usuarioEntities) {
+            if(Objects.equals(usuarioRequest.getEmail(), usuarioModel.getEmail())
+                    && Objects.equals(usuarioRequest.getSenha(), usuarioModel.getSenha())
             ) {
-                usuarioResponse.setId(usuarioEntity.getId());
+                usuarioResponse.setId(usuarioModel.getId());
             }
         }
 
@@ -43,21 +48,23 @@ public class UsuarioService {
 
     public UsuarioResponse criarNovoUsuario(UsuarioRequest usuarioRequest) {
         try {
-            List<UsuarioEntity> usuarioEntities = usuarioRepository.findAll();
+            List<UsuarioModel> usuarioEntities = usuarioRepository.findAll();
 
-            for (UsuarioEntity usuarioEntity : usuarioEntities) {
-                if(Objects.equals(usuarioRequest.getEmail(), usuarioEntity.getEmail())
+            for (UsuarioModel usuarioModel : usuarioEntities) {
+                if(Objects.equals(usuarioRequest.getEmail(), usuarioModel.getEmail())
                 ) {
                     throw new BadRequestException("Já existe um usuário cadastrado com o email informado!");
                 }
             }
 
-            UsuarioEntity usuarioEntity = usuarioRepository.save(new UsuarioEntity(usuarioRequest.getEmail()
+            usuarioRequest.setSenha(new BCryptPasswordEncoder().encode(usuarioRequest.getSenha()));
+
+            UsuarioModel usuarioModel = usuarioRepository.save(new UsuarioModel(usuarioRequest.getEmail()
                     , usuarioRequest.getSenha()
             ));
 
             return new UsuarioResponse(
-                    usuarioEntity.getId()
+                    usuarioModel.getId()
             );
         } catch (NotFoundException e) {
             throw e;
@@ -67,4 +74,14 @@ public class UsuarioService {
 
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UsuarioModel user = this.usuarioRepository.findUserByLogin(username);
+
+        if (user == null) {
+            throw new UsernameNotFoundException("Usuário não encontrado.");
+        }
+
+        return new User(user.getUsername(), user.getPassword(), user.getAuthorities());
+    }
 }
